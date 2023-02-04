@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Visa Application Status! </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+
+  <body>
+    <div class="grid">
+
+      <div class="box">
+
+        <p>According to the continent, Education level and Job Expereience, which Visa Application is likely to be accepted?</p>
+
+        <form action="{{ url_for('predict')}}" method="post">
+          <input type="text" name="education_of_employee" placeholder="education_of_employee" required="required" min="0" max="60" />
+          <input type="text" name="yr_of_estab" placeholder="yr_of_estab" required="required" />
+          <input type="text" name="no_of_employees" placeholder="no_of_employees" required="required" />
+          <input type="text" name="prevailing_wage" placeholder="prevailing_wage" required="required" />
+          <button type="submit" class="btn">Predict wether the visa will be certified or denied</button>
+        </form>
+
+        <p>{{ prediction_text }}</p>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
